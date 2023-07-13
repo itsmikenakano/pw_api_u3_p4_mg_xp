@@ -8,20 +8,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.demo.service.IEstudianteService;
 
 @SpringBootApplication
-public class PwApiU3P4MgXpApplication implements CommandLineRunner{
+public class PwApiU3P4MgXpApplication {
 	
-	@Autowired
-	private IEstudianteService estudianteService;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(PwApiU3P4MgXpApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		
-		System.out.println(this.estudianteService.consultarPorCedula("12345"));
-	}
+
 
 }
