@@ -27,6 +27,16 @@ public class Estudiante {
 	private LocalDate fechaNacimiento;
 	@Column(name = "estu_cedula")
 	private String cedula;
+	@Column(name = "estu_provincia")
+	private String provincia;
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
 
 	public String getCedula() {
 		return cedula;
@@ -71,7 +81,9 @@ public class Estudiante {
 	@Override
 	public String toString() {
 		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento="
-				+ fechaNacimiento + ", cedula=" + cedula + "]";
+				+ fechaNacimiento + ", cedula=" + cedula + ", provincia=" + provincia + "]";
 	}
+
+
 
 }
