@@ -40,9 +40,21 @@ public class EstudianteServiceImpl implements IEstudianteService{
 	}
 
 	@Override
-	public List<Estudiante> consultarTodos(String provincia) {
+	public List<Estudiante> consultarTodos() {
 		// TODO Auto-generated method stub
-		return this.estudianteRepository.buscarTodos(provincia);
+		return this.estudianteRepository.buscarTodos();
+	}
+	
+	@Override
+	public List<Estudiante> consultarTodosPorProvincia(String provincia) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepository.buscarTodosPorProvincia(provincia);
+	}
+
+	@Override
+	public Estudiante consultarPorId(Integer id) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepository.buscarPorId(id);
 	}
 
 

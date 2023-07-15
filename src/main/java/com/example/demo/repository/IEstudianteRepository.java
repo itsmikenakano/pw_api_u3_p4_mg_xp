@@ -12,5 +12,6 @@ public interface IEstudianteRepository {
 	public void actualizarParcial(String cedulaActual, String cedulaNueva);
 	public void borrar(Integer id);
 	public Estudiante buscarPorId(Integer id);
-	public List<Estudiante> buscarTodos(String provincia);
+	public List<Estudiante> buscarTodos();
+	public List<Estudiante> buscarTodosPorProvincia(String provincia);
 }

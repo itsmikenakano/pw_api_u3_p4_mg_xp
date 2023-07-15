@@ -25,41 +25,40 @@ public class EstudianteControllerRestFul {
 	private IEstudianteService estudianteService;
 
 	// GET
-	@GetMapping(path = "/buscar/{cedula}")
+	@GetMapping(path = "/{cedula}")
 	public Estudiante consultarPorCedula(@PathVariable String cedula) {
 		return this.estudianteService.consultarPorCedula(cedula);
 	}
 
-	@PostMapping(path = "/guardar")
+	@PostMapping
 	// estudiante debe venir en el cuerpo del request
 	public void guardar(@RequestBody Estudiante estudiante) {
 
 		this.estudianteService.guardar(estudiante);
 	}
 
-	@PutMapping(path = "/actualizar/{identificador}")
+	@PutMapping(path = "/{identificador}")
 	public void actualizar(@RequestBody Estudiante estudiante, @PathVariable Integer identificador) {
 		estudiante.setId(identificador);
 		this.estudianteService.actualizar(estudiante);
 	}
 
-	@PatchMapping(path = "/actualizarParcial/{identificador}/{cedula}")
-	public void actualizarParcial(@RequestBody Estudiante estudiante, @PathVariable Integer identificador,  @PathVariable String cedula ) {
-		estudiante.setId(identificador);
-		Estudiante estu1 = this.estudianteService.consultarPorCedula(cedula);
+	@PatchMapping(path = "/{identificador}")
+	public void actualizarParcial(@RequestBody Estudiante estudiante, @PathVariable Integer identificador) {
+		Estudiante estu1 = this.estudianteService.consultarPorId(identificador);
 		estu1.setCedula(estudiante.getCedula());
 		
 		this.estudianteService.actualizar(estu1);
 
 	}
 
-	@DeleteMapping(path = "/borrar/{id}")
+	@DeleteMapping(path = "/{id}")
 	public void borrar(@PathVariable Integer id) {
 		this.estudianteService.eliminar(id);
 	}
 	
-	@GetMapping(path = "/buscarTodos")
-	public List<Estudiante> consultarTodos(@RequestParam String provincia){
-		return this.estudianteService.consultarTodos(provincia);
+	@GetMapping
+	public List<Estudiante> consultarTodosPorProvincia(@RequestParam String provincia) {
+		return this.estudianteService.consultarTodosPorProvincia(provincia);
 	}
 }

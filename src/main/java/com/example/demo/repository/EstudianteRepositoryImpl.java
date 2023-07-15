@@ -62,7 +62,15 @@ public class EstudianteRepositoryImpl implements IEstudianteRepository{
 	}
 
 	@Override
-	public List<Estudiante> buscarTodos(String provincia) {
+	public List<Estudiante> buscarTodos() {
+		// TODO Auto-generated method stub
+		TypedQuery<Estudiante> myQuery = this.entityManager.createQuery(
+				"SELECT e FROM Estudiante e", Estudiante.class);
+		
+		return myQuery.getResultList();
+	}
+	@Override
+	public List<Estudiante> buscarTodosPorProvincia(String provincia) {
 		// TODO Auto-generated method stub
 		TypedQuery<Estudiante> myQuery = this.entityManager.createQuery(
 				"SELECT e FROM Estudiante e WHERE e.provincia = :datoProvincia", Estudiante.class);
